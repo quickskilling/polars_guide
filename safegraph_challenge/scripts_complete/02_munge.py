@@ -18,7 +18,7 @@ day_brand = dcsv_parsed\
 
 month_brand = dcsv_parsed\
     .select("placekey", "related_same_month_brand")\
-    .unnest("related_same_day_brand")\
+    .unnest("related_same_month_brand")\
     .melt(id_vars="placekey")\
     .drop_nulls()
 
