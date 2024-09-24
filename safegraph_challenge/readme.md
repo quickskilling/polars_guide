@@ -9,6 +9,11 @@ In this challenge, we want to explore the Chipotle store patterns data.
 5. Compare `.parquet` formats
 6. Build a few exploration visuals
 
+- Which state has the most Chipotles?
+- What is the average number of times a typical Chipotle customer visits?
+- Which Chipotle has the least traffic on Tuesday nights?
+- Which Chipotle has the most traffic at 11 am?
+
 ## Folders
 
 - `scripts_practice`: Has uncomplete scripts with commented prompts for guided learning
