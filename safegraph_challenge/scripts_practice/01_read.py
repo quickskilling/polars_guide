@@ -47,13 +47,3 @@ dcsv_parsed = dcsv.with_columns(
             }))
     # The multiple other columns
     )
-
-# now write the data
-dcsv_parsed.write_parquet("../data/chipotle_core_poi_and_patterns.parquet")
-# %%
-# Now we can explore the relationships using unnest
-dcsv_parsed.select("placekey", "related_same_day_brand").unnest("related_same_day_brand").melt(id_vars="placekey").drop_nulls()
-# needs code updated above
-dcsv_parsed.select("placekey", "visitor_home_cbgs").unnest("visitor_home_cbgs").melt(id_vars="placekey").drop_nulls()
-
-# %%

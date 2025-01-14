@@ -42,15 +42,8 @@ dcsv_parsed = dcsv.with_columns(
             pl.Field("McDonald's", pl.Int32),
             pl.Field("Krogers", pl.Int32),
             pl.Field("Starbucks", pl.Int32),
-            })),
-    related_same_day_brand=pl.col("related_same_day_brand").str.json_decode(),
-    related_same_month_brand=pl.col("related_same_month_brand").str.json_decode(),
-    visitor_home_cbgs=pl.col("visitor_home_cbgs").str.json_decode()
-    )
-dcsv_parsed.write_parquet("../data/chipotle_core_poi_and_patterns.parquet")
-# %%
-# Now we can explore the relationships using unnest
-dcsv_parsed.select("placekey", "related_same_day_brand").unnest("related_same_day_brand").melt(id_vars="placekey").drop_nulls()
-dcsv_parsed.select("placekey", "visitor_home_cbgs").unnest("visitor_home_cbgs").melt(id_vars="placekey").drop_nulls()
+            }))    )
+# related_same_month_brand=pl.col("related_same_month_brand").str.json_decode(infer_schema_length=100000),
+# related_same_day_brand=pl.col("related_same_day_brand").str.json_decode(),
+# visitor_home_cbgs=pl.col("visitor_home_cbgs").str.json_decode()
 
-# %%
